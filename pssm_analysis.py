@@ -84,13 +84,14 @@ def calc_information_content(pssm_df, background_freq):
     return ic_df
 
 
-def plot_logomaker(pssm_df, length_per_row=100, title=None):
+def plot_logomaker(pssm_df, length_per_row=100, title=None, ylim=None):
     L = length_per_row
     num_rows = len(pssm_df) // L + 1
 
     fig, axs = plt.subplots(num_rows, 1, figsize=(24, 2 * num_rows))
 
-    ylim = pssm_df.max().max()  # not ideal for probability
+    if ylim is None:
+        ylim = pssm_df.max().max()  # not ideal for probability
 
     for i in range(num_rows):
         logo = logomaker.Logo(
