@@ -27,13 +27,11 @@ class VAE(pl.LightningModule):
             "dim1": 1500,
             "dim2": 1000,
             "is_annealing": True,
+            "max_epochs": 20,
         }
         if h_params is not None:
             self.h_params.update(h_params)
-            if self.h_params["dim1"] < self.h_params["dim2"]:  ### Remove this?
-                self.h_params["dim1"], self.h_params["dim2"] = self.h_params["dim2"], self.h_params["dim1"]
         self.save_hyperparameters(self.h_params)
-        self.max_epochs = 20  ### Incorporate this into h_params only if is_annealing = True
 
         encoder_dims = [self.h_params["dim1"], self.h_params["dim2"]]
         decoder_dims = [self.h_params["dim2"], self.h_params["dim1"]]
