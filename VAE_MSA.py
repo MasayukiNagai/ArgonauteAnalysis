@@ -119,7 +119,7 @@ class VAE(pl.LightningModule):
             -0.5 * torch.sum(1 + log_var - mu**2 - log_var.exp(), dim=1), dim=0
         )
         if is_training and self.hparams["is_annealing"]:
-            beta = self.h_params["beta"] * self.current_epoch / self.max_epochs
+            beta = self.h_params["beta"] * self.current_epoch / self.h_params["max_epochs"]
         else:
             beta = self.h_params["beta"]
         loss = recon_loss + beta * kl_loss
