@@ -84,17 +84,17 @@ def plot_pssm(pssm, ALPHABETS, title=None):
     ax.set_yticklabels(list(ALPHABETS), rotation=0)
 
 
-def calc_information_content(pssm_df, background_freq):
-    # Calculate the information content for each position
-    ic_df = pd.DataFrame(index=pssm_df.index)
-    for column in pssm_df.columns:
-        p_i = pssm_df[column]
-        q_i = background_freq[column]
-        ic = p_i.apply(lambda x: x * np.log2(x / q_i) if x > 0 else 0)
-        ic_df[column] = ic
-    # Sum across rows to get the total information content per position
-    ic_df["Total IC"] = ic_df.sum(axis=1)
-    return ic_df
+# def calc_information_content(pssm_df, background_freq):
+#     # Calculate the information content for each position
+#     ic_df = pd.DataFrame(index=pssm_df.index)
+#     for column in pssm_df.columns:
+#         p_i = pssm_df[column]
+#         q_i = background_freq[column]
+#         ic = p_i.apply(lambda x: x * np.log2(x / q_i) if x > 0 else 0)
+#         ic_df[column] = ic
+#     # Sum across rows to get the total information content per position
+#     ic_df["Total IC"] = ic_df.sum(axis=1)
+#     return ic_df
 
 
 def plot_logomaker(pssm_df, length_per_row=100, title=None, ylim=None, color_name=None):
