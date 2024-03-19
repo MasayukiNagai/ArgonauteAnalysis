@@ -6,7 +6,7 @@
 3. `AA`: AA or a gap in the MSA
 4. `esm2_AA`: AA that has the highest conservation score out of 20 AAs according to ESM2[1]. Only relevant when the conservation score is high enough.
 5. `conservation_score`: Conservation score (probability) computed by ESM2 using categorical jacobian[2] 
-6. `count`: The number of samples that have the same AA as `esm2_AA` at the same position. Can be used to see how unique the AA is. The minimum is 1 (i.e., only the target sequence has the AA at the positin) and the maximum is the number of samples (i.e., all the samples have the AA at the position = highly conserved across the samples). 
+6. `count`: The number of samples that have the same AA as `AA` (of the target) at the MSA position. Can be used to see how unique the AA is. The minimum is 1 (i.e., only the target sequence has the AA at the positin) and the maximum is the number of samples (i.e., all the samples have the AA at the position = highly conserved across the samples). 
 7. column 7 or after have an AA or a gap in the MSA for each sample
 
 
